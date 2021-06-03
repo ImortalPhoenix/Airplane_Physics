@@ -70,7 +70,7 @@ namespace Dragneel
 
 
         #region Costom Method
-        void HandleInput()
+        protected virtual void HandleInput()
         {
             // Input Properties
             pitch = Input.GetAxis("Vertical");
