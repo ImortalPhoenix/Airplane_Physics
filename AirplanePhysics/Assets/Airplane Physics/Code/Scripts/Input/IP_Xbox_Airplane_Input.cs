@@ -12,7 +12,7 @@ namespace Dragneel
             pitch = Input.GetAxis("Vertical");
             roll = Input.GetAxis("Horizontal");
             yaw = Input.GetAxis("X_RH_Stick");
-            throttle = Input.GetAxis("X_RV_Stick    ");
+            throttle = Input.GetAxis("X_RV_Stick");
 
             // Debug.Log("Pitch:" + pitch + "-" + "Roll" + roll );
 
