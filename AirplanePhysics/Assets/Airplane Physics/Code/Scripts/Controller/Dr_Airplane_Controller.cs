@@ -15,6 +15,11 @@ namespace Dragneel
         [Tooltip("Weight is in LBS")] 
         public float airplaneWeight = 800f;
 
+        [Header("Engines")]
+        public List<Dr_Airplane_Engine> engines = new List<Dr_Airplane_Engine>();
+
+        [Header("Wheels")]
+        public List<Dr_Airplane_Wheel> wheels = new List<Dr_Airplane_Wheel>();
         #endregion
 
 
@@ -41,6 +46,18 @@ namespace Dragneel
                     rb.centerOfMass = centerOfGravity.localPosition;
                 }
             }
+
+            if (wheels != null)
+            {
+                if(wheels.Count > 0)
+                {
+                    foreach(Dr_Airplane_Wheel wheel in wheels)
+                    {
+
+                    }
+                }
+            }
+
         }
 
         #endregion
@@ -48,16 +65,28 @@ namespace Dragneel
         #region Costom Methods
         protected override void HandlePhysics()
         {
-            HandleEngines();
-            HandleAerodynamics();
-            HandleSteering();
-            HandleBrake();
-            HandleAltitude();
+            if (input)
+            {
+                HandleEngines();
+                HandleAerodynamics();
+                HandleSteering();
+                HandleBrake();
+                HandleAltitude();
+            }   
         }
 
         void HandleEngines()
         {
-
+            if(engines != null)
+            {
+                if(engines.Count > 0)
+                {
+                    foreach(Dr_Airplane_Engine engine in engines)
+                    {
+                        rb.AddForce(engine.CalculateForce(input.Throttle));
+                    }
+                }
+            }
         }
 
         void HandleAerodynamics()
