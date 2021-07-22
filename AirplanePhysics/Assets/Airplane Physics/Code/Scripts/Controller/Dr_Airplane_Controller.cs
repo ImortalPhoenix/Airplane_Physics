@@ -53,7 +53,7 @@ namespace Dragneel
                 {
                     foreach(Dr_Airplane_Wheel wheel in wheels)
                     {
-
+                        wheel.InitWheel();
                     }
                 }
             }
